@@ -1,32 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import depsoitLogo from './assets/deposit.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import WebApp from '@twa-dev/sdk'
+
 
 function App() {
+  const queryParameters = new URLSearchParams(window.location.search)
+  const usdBalanceInt = queryParameters.get("usdBalanceInt") || "0"
+  const usdBalanceDecimal = queryParameters.get("usdBalanceDecimal") || "00"
+
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>Total Balance</h1>
+      <div className="container">
+        <span className="gray-text big-text">$ </span>
+        <span className="big-text">{usdBalanceInt}. </span>
+        <span className="small-text">{usdBalanceDecimal}</span>
+        <button className="logo-button">
+          <img src={depsoitLogo} className="logo" alt="Vite logo" />
+        </button>
       </div>
-      <h1>Vite + React</h1>
+      <h1></h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
-      </div>
-        {/* Here we add our button with alert callback */}
-      <div className="card">
-        <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
-            Show Alert
         </button>
       </div>
     </>
