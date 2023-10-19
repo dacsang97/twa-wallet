@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import depsoitLogo from './assets/deposit.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
 
 function App() {
   const queryParameters = new URLSearchParams(window.location.search)
-  const usdBalanceInt = queryParameters.get("usdBalanceInt") || "0"
-  const usdBalanceDecimal = queryParameters.get("usdBalanceDecimal") || "00"
+  const usdBalanceInt = queryParameters.get('usdBalanceInt') || '0'
+  const usdBalanceDecimal = queryParameters.get('usdBalanceDecimal') || '00'
 
   const [count, setCount] = useState(0)
 
