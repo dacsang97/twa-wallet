@@ -1,32 +1,24 @@
-import { useState } from 'react'
 import depsoitLogo from './assets/deposit.svg'
-import './App.css'
 
 function App() {
   const queryParameters = new URLSearchParams(window.location.search)
   const usdBalanceInt = queryParameters.get('usdBalanceInt') || '0'
   const usdBalanceDecimal = queryParameters.get('usdBalanceDecimal') || '00'
 
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1>Total Balance</h1>
-      <div className="container">
-        <span className="gray-text big-text">$ </span>
-        <span className="big-text">{usdBalanceInt}. </span>
-        <span className="small-text">{usdBalanceDecimal}</span>
-        <button className="logo-button">
+    <div className="container mx-auto">
+      <h1 className="text-4xl text-gray-800">Total Balance</h1>
+      <div className="flex items-center">
+        <span className="text-3xl text-gray-500">$ </span>
+        <div className="flex items-end">
+          <div className="text-3xl">{usdBalanceInt}. </div>
+          <div className="text-xl">{usdBalanceDecimal}</div>
+        </div>
+        <button className="logo-button px-5 py-3">
           <img src={depsoitLogo} className="logo" alt="Vite logo" />
         </button>
       </div>
-      <h1></h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
+    </div>
   )
 }
 
