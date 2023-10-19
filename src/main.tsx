@@ -7,8 +7,7 @@ import eruda from 'eruda'
 
 eruda.init()
 
-WebApp.ready();
-
+WebApp.ready()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
